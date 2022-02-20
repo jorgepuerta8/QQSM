@@ -11,16 +11,18 @@ let preguntas=[];
 //1º)   Hacer la busqueda en JSON en los 5 ficheros
 //2º)   Son 2 preguntas por cada JSON
 let datos;
-let aleatorio= Math.floor(math.random()*(45-1));
+
 //se pueden meter en un array de  strings con los archivos php
-let arrayPHP=["../CORS/historia.php",'../CORS/deportes.php','../CORS/ciencia.php','../CORS/geografia.php',"entrenimiento.php"];
+let arrayPHP=["../CORS/historia.php",'../CORS/deportes.php','../CORS/ciencia.php','../CORS/geografia.php',"../CORS/entretenimiento.php"];
+console.log(arrayPHP);
 arrayPHP.forEach(enlace => {
+    console.log(enlace);
 let ajax = fetch(enlace).then(res=>{
-    console.log(res)
+    console.log(res);
     if(res.ok){
         return res.json();
     }
-
+    /**mirar que problema hay con el ftech */
 })
 
 .then((res)=>{
@@ -32,8 +34,8 @@ console.log(datos);
 })
 .then(()=>{ //aqui se meten los datos en el array de preguntas
     console.log(datos);
-    let aleatorio1= Math.floor(math.random()*(45-1));
-    let aleatorio2= Math.floor(math.random()*(45-1));
+    let aleatorio1= Math.floor(Math.random()*(45-1));
+    let aleatorio2= Math.floor(Math.random()*(45-1));
     let pregunta1=datos[aleatorio1];
     let pregunta2=datos[aleatorio2];
     preguntas.push(pregunta1,pregunta2);
