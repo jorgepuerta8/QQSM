@@ -2,7 +2,7 @@
 /**
  * 1º importamos los otros archivos js
  */
-$(document.querySelector('main')).css('overflow', 'hidden'); /** para cuando inicie */
+/**$(document.querySelector('main')).css('overflow', 'hidden'); /** para cuando inicie */
 import {crearNavbar} from './navbar.js';
 import {preguntas} from './preguntas.js';
 console.log(preguntas);
