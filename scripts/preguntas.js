@@ -13,33 +13,33 @@ let preguntas=[];
 let datos;
 
 //se pueden meter en un array de  strings con los archivos php
-let arrayPHP=["../CORS/historia.php",'../CORS/deportes.php','../CORS/ciencia.php','../CORS/geografia.php',"../CORS/entretenimiento.php"];
+let arrayPHP=["./../CORS/historia.php",'./../CORS/deportes.php','./../CORS/ciencia.php','./../CORS/geografia.php',"./../CORS/entretenimiento.php"];
 console.log(arrayPHP);
 arrayPHP.forEach(enlace => {
     console.log(enlace);
-let ajax = fetch(enlace).then(res=>{
+let ajax = fetch(enlace)
+ajax.then(res=>{
     console.log(res);
     if(res.ok){
         return res.json();
     }
-    /**mirar que problema hay con el ftech */
 })
 
-.then((res)=>{
+ajax.then((res)=>{
     console.log(res);
     datos=res;
 console.log(datos);
-
-  
 })
-.then(()=>{ //aqui se meten los datos en el array de preguntas
-    console.log(datos);
+ajax.then(()=>{ //aqui se meten los datos en el array de preguntas
+    console.log(datos.children);
     let aleatorio1= Math.floor(Math.random()*(45-1));
     let aleatorio2= Math.floor(Math.random()*(45-1));
     let pregunta1=datos[aleatorio1];
+    console.log(pregunta1);
     let pregunta2=datos[aleatorio2];
     preguntas.push(pregunta1,pregunta2);
 });
 console.log(preguntas);
-});
+}); //fin del foreach
+console.log(preguntas);
 export {preguntas}; //exportamos preguntas

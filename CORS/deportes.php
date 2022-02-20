@@ -1,3 +1,4 @@
 <?php
-readfile('https://github.com/Arquisoft/Trivial2b/blob/master/extract/src/main/java/es/uniovi/asw/trivial/resources/PreguntasDeporte.json');
+error_reporting(0);
+readfile('https://raw.githubusercontent.com/Arquisoft/Trivial2b/master/extract/src/main/java/es/uniovi/asw/trivial/resources/PreguntasDeportes.json');
 ?>

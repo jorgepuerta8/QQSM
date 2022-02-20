@@ -1,3 +1,3 @@
 <?php
-readfile('https://github.com/Arquisoft/Trivial2b/blob/master/extract/src/main/java/es/uniovi/asw/trivial/resources/PreguntasCiencia.json');
+readfile('https://raw.githubusercontent.com/Arquisoft/Trivial2b/master/extract/src/main/java/es/uniovi/asw/trivial/resources/PreguntasCiencias.json');
 ?>

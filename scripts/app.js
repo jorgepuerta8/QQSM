@@ -2,7 +2,7 @@
 /**
  * 1º importamos los otros archivos js
  */
-document.querySelector('main').css('overflow', 'hidden'); /** para cuando inicie */
+$(document.querySelector('main')).css('overflow', 'hidden'); /** para cuando inicie */
 import {crearNavbar} from './navbar.js';
 import {preguntas} from './preguntas.js';
 console.log(preguntas);
@@ -18,7 +18,7 @@ $(fragmento1).css({
 })
 let enunciado=$('<label>').innerHTML='escriba su nombre';
 let usuario=$('<input>').attr('id',"name").attr("type","text");
-let btn=$('<input>').attr('id',"btn").attr(value,'aceptar').addEventListener('click',function(){
+let btn=$('<input>').attr('id',"btn").attr('value','aceptar').addEventListener('click',function(){
     if(document.querySelector('#name').value.trim()===''){ //si está vacío
         
     }else{
