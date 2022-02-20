@@ -22,11 +22,12 @@ arrayPHP.forEach(enlace => {
 url: enlace,
 type: "GET",
 dataType: "json",
-success: CrearPregunta
-    });
+
+    })
+    .done(CrearPregunta);
 
 function CrearPregunta(datos){
-    console.log("se mete")
+  
     console.log(datos)
     datos.forEach(element => {
         preguntas_preseleccionadas.push(element);
