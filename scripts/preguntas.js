@@ -9,6 +9,7 @@
  */
 let preguntas=[];
 let preguntas_preseleccionadas=[];
+
 //1º)   Hacer la busqueda en JSON en los 5 ficheros
 //2º)   Son 2 preguntas por cada JSON
 let datos;
@@ -22,6 +23,7 @@ arrayPHP.forEach(enlace => {
 url: enlace,
 type: "GET",
 dataType: "json",
+data: datos,
 success: CrearPregunta
     });
 
