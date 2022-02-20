@@ -16,9 +16,9 @@ let fragmento1=$(document.createDocumentFragment());
 $(fragmento1).css({
     "background-image":"url('../Media/fondo1.gif')","background-repeat":"no-repeat","background-size":"cover","color":"azure",
 })
-let enunciado=$('<label>').innerHTML='escriba su nombre';
+let enunciado=$('<label>').innerHTML='escriba su nombre'; //cambiar esto
 let usuario=$('<input>').attr('id',"name").attr("type","text");
-let btn=$('<input>').attr('id',"btn").attr('value','aceptar').addEventListener('click',function(){
+let btn=$('<input>').attr('id',"btn").attr('value','aceptar').on('click',function(){
     if(document.querySelector('#name').value.trim()===''){ //si está vacío
         
     }else{
@@ -30,7 +30,7 @@ let btn=$('<input>').attr('id',"btn").attr('value','aceptar').addEventListener('
         Jugar();
     }
 })
-enunciado.appendChild(usuario);
+enunciado.append((usuario));
 fragmento1.append(enunciado,btn);
 document.querySelector('#visor').appendChild(fragmento1);
 function Jugar(){

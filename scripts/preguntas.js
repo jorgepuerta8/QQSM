@@ -22,9 +22,8 @@ arrayPHP.forEach(enlace => {
 url: enlace,
 type: "GET",
 dataType: "json",
-
-    })
-    .done(CrearPregunta);
+success: CrearPregunta
+    });
 
 function CrearPregunta(datos){
   
