@@ -12,21 +12,28 @@ let preguntas_preseleccionadas=[];
 
 //1º)   Hacer la busqueda en JSON en los 5 ficheros
 //2º)   Son 2 preguntas por cada JSON
-let datos;
 
 //se pueden meter en un array de  strings con los archivos php
-let arrayPHP=["./../CORS/historia.php",'./../CORS/deportes.php','./../CORS/ciencia.php','./../CORS/geografia.php',"./../CORS/entretenimiento.php"];
+let arrayPHP=["../CORS/historia.php",'./../CORS/deportes.php','./../CORS/ciencia.php','./../CORS/geografia.php',"./../CORS/entretenimiento.php"];
 
+$.ajax({
+    url: "../CORS/historia.php",
+    type: "GET",
+    dataType: "json",
+    
+    success: CrearPregunta
+        });
+  /**  
 arrayPHP.forEach(enlace => {
     console.log(enlace);
     $.ajax({
 url: enlace,
 type: "GET",
 dataType: "json",
-data: datos,
+
 success: CrearPregunta
     });
-
+ */
 function CrearPregunta(datos){
   
     console.log(datos)
@@ -45,6 +52,6 @@ preguntas.push(pregunta1,pregunta2);
 
 
 console.log(preguntas);
-}); //fin del foreach
+//}); //fin del foreach
 console.log(preguntas);
 export {preguntas}; //exportamos preguntas
