@@ -38,5 +38,5 @@ function CrearPregunta(datos){
     preguntas.push(Pregunta);
     });
 //aqui se meten los datos en el array de preguntas
-
+}
 export {preguntas}; //exportamos preguntas
