@@ -10,13 +10,13 @@ console.log(preguntas);
  * 1º banner para que introduzca el usuario
  */
 
-let boolean=false;
+let boolean=false;//boolean validador del nombre
 
 let fragmento1=$(document.createDocumentFragment());
-$(fragmento1).css({
-    "background-image":"url('../Media/fondo1.gif')","background-repeat":"no-repeat","background-size":"cover","color":"azure",
-})
-let enunciado=$('<label>').innerHTML='escriba su nombre'; //cambiar esto
+fragmento1.css({
+    "background-image":"url('../Media/fondo1.gif')","background-repeat":"no-repeat","background-size":"cover","color":"azure", "width":"100%","height":"100%"
+});
+let formulario=$(document.createElement("<form>")).append('<label>').append('<span> Escriba su nombre </span>'); //cambiar esto
 let usuario=$('<input>').attr('id',"name").attr("type","text");
 let btn=$('<input>').attr('id',"btn").attr('value','aceptar').on('click',function(){
     if(document.querySelector('#name').value.trim()===''){ //si está vacío
@@ -32,10 +32,12 @@ let btn=$('<input>').attr('id',"btn").attr('value','aceptar').on('click',functio
 })
 enunciado.append((usuario));
 fragmento1.append(enunciado,btn);
-document.querySelector('#visor').appendChild(fragmento1);
+document.querySelector('#visor').append(fragmento1);
+document.querySelector('main').style.visibility='hidden';
+
 function Jugar(){
-    document.querySelector('#visor').css('overflow','hidden');
-    document.querySelector('main').css('overflow','visible');
+    document.querySelector('#visor').css('visibility','hidden');
+    document.querySelector('main').css('visibility','visible');
 // 1º) verter la información y una function para saber si el target id es el correcto que lo sabemos con el id
 }
 // Funciones de comodines //
