@@ -14,21 +14,26 @@ function crearNavbar(nombre){
      * 100-500-1000-1500-2000-2500-3000-5000-|se puede retirar a partir de aqui, se creará un boton para retirarse|10.000-20.000€-50.000€-80.000€
      */
      let contadorPreguntas=0; //contador de preguntas acertadas
-    let nav=document.createDocumentFragment();
+    let nav=$(document.createDocumentFragment());
+    nav.css("width","100%").css("height","40%").css("display","flex").css("flex-direction","column");
     let dinero=[100,500,1000,1500,2000,2500,3000,5000,10000,20000,50000,80000,100000,500000,1000000]; //se colocará el id en función del contador
-    let PreguntasAcertadas=$('<div>').attr('id','PregAcertadas').html(`Preguntas acertadas: ${contadorPreguntas}`);
-        nav.appendChild(PreguntasAcertadas);
-        let Comodin1=$("<button>").attr('id',`comodin1`).css(
-            "background-image: url('/Media/50.jpg'), background-repeat: no-repeat, background-size: cover"
-        ).attr("class","comodin").attr('disabled','false').on('click',mitad);
-        let Comodin2=$("<button>").attr('id',`comodin2`).attr("class","comodin").attr('disabled','false').on('click',mitad);
-        let Comodin3=$("<button>").attr('id',`comodin3`).attr("class","comodin").attr('disabled','false').on('click',publico);
+    let PreguntasAcertadas=$('<div>').attr('id','PregAcertadas').html(`Preguntas acertadas: ${contadorPreguntas}`).css("width","20%").css("height","auto").css("margin","auto");
         
-    let Comodines=$('<div>').attr('id','Comodines').append(Comodin1,Comodin2,Comodin3).css();
-    nav.appendChild(Comodines);
+    nav.append(PreguntasAcertadas);
+        let Comodin1=$("<button>").attr('id',`comodin1`).css("background-image","url('/Media/50.jpg')").css("background-repeat","no-repeat").css("background-size","cover").attr("class","comodin").attr('disabled','false');
+        let Comodin2=$("<button>").attr('id',`comodin2`).attr("class","comodin").attr('disabled','false');
+        let Comodin3=$("<button>").attr('id',`comodin3`).attr("class","comodin").attr('disabled','false');
+        
+    let Comodines=$("<div>").attr('id','Comodines').css("width","50%").css("height","auto").css("margin","auto");
+    Comodines.append(Comodin1,Comodin2,Comodin3);
+    console.log(Comodines);
+    nav.append(Comodines);
     //dinero
-    let dineroDiv=$('div').attr('id','dinero').innerHTML(`${nombre}:  ${dinero[contadorPreguntas]} €`).css();
-    nav.appendChild(dineroDiv);
-    document.querySelector('navbar').appendChild(nav);
+    let dineroDiv=$('<div>').attr('id','dinero').html(`${nombre}:  ${dinero[contadorPreguntas]} €`).css("width","20%").css("height","auto").css("margin","auto");
+    nav.append(dineroDiv);
+    console.log(nav);
+   return nav;
 }
+
+
 export{crearNavbar};

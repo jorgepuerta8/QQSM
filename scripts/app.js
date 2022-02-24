@@ -9,6 +9,8 @@ import {preguntas} from './preguntas.js';
 /**
  * 1º banner para que introduzca el usuario
  */
+let barra;
+console.log(barra);
 let cuerpo=$('#visor');
     console.log(cuerpo);
 let boolean=false;//boolean validador del nombre
@@ -24,12 +26,14 @@ let btn=$('<input>').attr("type","button").attr('id',"btn").attr('value','submit
     if(document.querySelector('#name').value.trim()===''){ //si está vacío
         usuario.html("ERROR ESCRIBA SU NOMBRE");
     }else{
-        
+        let nombre=document.getElementById('name').value;
+     
         boolean=true;
 
-        crearNavbar(document.querySelector('#name'));
-       
-        Jugar();
+       barra=crearNavbar(nombre);
+      console.log(barra);
+      barra.css("width","100%").css("height","40%").css("display","flex").css("flex-direction","column").css("background-color","#1D0177").css("border-radius","5em").css("border","gold 1px solid").css("color","cornsilk");
+       Jugar();
     }
 })
 formulario.append(usuario);
@@ -42,10 +46,8 @@ cuerpo.append(fragmento1);
 document.querySelector('main').style.visibility='hidden';
 **/
 function Jugar(){
-    document.replaceChild(cuerpo,fragmento1);
-   /** document.querySelector('#visor').css('visibility','hidden');
-    document.querySelector('main').css('visibility','visible'); */
-// verter la información y una function para saber si el target id es el correcto que lo sabemos con el id
+    cuerpo.replaceWith(barra);
+    console.log(cuerpo)
 
 /** IMPORTANTE
  * 
