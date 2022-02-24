@@ -9,22 +9,18 @@ import {preguntas} from './preguntas.js';
 /**
  * 1º banner para que introduzca el usuario
  */
-let cuerpo =$('#visor').css(["width:80%",
-   " margin:auto",
-    "height:auto",
-    "background-color: #1D0177",
-    "border-radius: 5em",
-    "border: gold 1px solid",
-    "color:cornsilk"]);
+let cuerpo=$('#visor');
+    console.log(cuerpo);
 let boolean=false;//boolean validador del nombre
 /**
  * Replace etiqueta Body por fragmento
  */
 let fragmento1=$(document.createDocumentFragment());
 
-let formulario=$("<form>").append('<label>').html('Escriba su nombre'); //cambiar esto
-let usuario=$('<input>').attr('id',"name").attr("type","text").attr('required');
-let btn=$('<input>').attr('id',"btn").attr('value','submit').on('click',function(){
+let formulario=$('<form>').append('<label>').html('Escriba su nombre').append('<br>');
+formulario.css("width","80%").css("margin","auto").css("height","auto").css("background-color","#1D0177").css("border-radius","5em").css("border","gold 1px solid").css("color","cornsilk");
+let usuario=$('<input>').attr('id',"name").attr("type","text").attr('required','true').css("width","50%").css("margin","auto");
+let btn=$('<input>').attr("type","button").attr('id',"btn").attr('value','submit').on('click',function(){
     if(document.querySelector('#name').value.trim()===''){ //si está vacío
         usuario.html("ERROR ESCRIBA SU NOMBRE");
     }else{
@@ -36,7 +32,7 @@ let btn=$('<input>').attr('id',"btn").attr('value','submit').on('click',function
         Jugar();
     }
 })
-formulario.append((usuario));
+formulario.append(usuario);
 fragmento1.append(formulario,btn);
 
 console.log(cuerpo);
