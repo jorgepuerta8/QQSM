@@ -1,3 +1,4 @@
+
 function crearNavbar(nombre){
     /**
      * Creamos un navbar que tendrá esta disposcicón
@@ -17,11 +18,13 @@ function crearNavbar(nombre){
     let dinero=[100,500,1000,1500,2000,2500,3000,5000,10000,20000,50000,80000,100000,500000,1000000]; //se colocará el id en función del contador
     let PreguntasAcertadas=$('<div>').attr('id','PregAcertadas').html(`Preguntas acertadas: ${contadorPreguntas}`);
         nav.appendChild(PreguntasAcertadas);
-        let Comodin1=$("<button>").attr('src',).attr('id',`comodin1`).css().attr('disabled','false').on('click',mitad);
-        let Comodin2=$("<button>").attr('src',).attr('id',`comodin2`).css().attr('disabled','false').on('click',mitad);
-        let Comodin3=$("<button>").attr('src',).attr('id',`comodin3`).css().attr('disabled','false').on('click',publico);
+        let Comodin1=$("<button>").attr('id',`comodin1`).css(
+            "background-image: url('/Media/50.jpg'), background-repeat: no-repeat, background-size: cover"
+        ).attr("class","comodin").attr('disabled','false').on('click',mitad);
+        let Comodin2=$("<button>").attr('id',`comodin2`).attr("class","comodin").attr('disabled','false').on('click',mitad);
+        let Comodin3=$("<button>").attr('id',`comodin3`).attr("class","comodin").attr('disabled','false').on('click',publico);
         
-    let Comodines=$('div').attr('id','Comodines').append(Comodin1,Comodin2,Comodin3).css();
+    let Comodines=$('<div>').attr('id','Comodines').append(Comodin1,Comodin2,Comodin3).css();
     nav.appendChild(Comodines);
     //dinero
     let dineroDiv=$('div').attr('id','dinero').innerHTML(`${nombre}:  ${dinero[contadorPreguntas]} €`).css();
