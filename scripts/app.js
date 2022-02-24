@@ -46,7 +46,24 @@ function Jugar(){
     document.replaceChild(cuerpo,fragmento1);
    /** document.querySelector('#visor').css('visibility','hidden');
     document.querySelector('main').css('visibility','visible'); */
-// 1º) verter la información y una function para saber si el target id es el correcto que lo sabemos con el id
+// verter la información y una function para saber si el target id es el correcto que lo sabemos con el id
+
+/** IMPORTANTE
+ * 
+ * const arr = [1, 2, 3, 4, 5]
+
+var mixer = array => {
+    for (let i = 0; i < array.length; i++) {
+        let randomized = Math.round(Math.random() * array.length)
+        [array[randomized], array[i]] = [array[i], array[randomized]]
+    }
+    return array
+}
+
+mixer(arr)
+ * PARA LAS PREGUNTAS BUSCRA ARRAY QUE DESCOLOQUE Y METR
+ * 
+*/
 console.log(preguntas);
 }
 // Funciones de comodines //
@@ -55,7 +72,4 @@ function publico(){
 }
 function mitad(){
 //1º) query selector a los 
-}
-function crearLayout(){
-    //Para crear el layout de las preguntas 
 }
