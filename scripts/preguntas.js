@@ -35,8 +35,10 @@ function CrearPregunta(datos){
         correcta:element.correct_answer,
         incorrectas: element.incorrect_answers
     }
+    console.log(Pregunta);
     preguntas.push(Pregunta);
     });
 //aqui se meten los datos en el array de preguntas
 }
+
 export {preguntas}; //exportamos preguntas

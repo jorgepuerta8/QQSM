@@ -50,7 +50,8 @@ function validarUser() {
 document.querySelector('main').style.visibility='hidden';
 **/
 function Jugar(){
-  
+  generarPregunta;
+
    
    
     
@@ -62,7 +63,7 @@ mixer(arr)
  * PARA LAS PREGUNTAS BUSCRA ARRAY QUE DESCOLOQUE Y METR
  * 
 */
-console.log(preguntas);
+console.log(preguntas[4].titulo);
 }
 function mezclarRespuestas(correcta, incorrectas){
     let  arr = incorrectas.push(correcta);
@@ -83,8 +84,9 @@ function mitad(){
 //1º) query selector a los 
 }
 function generarPregunta(){
-    P=preguntas[contadorPreguntas]; //esta es la preguntas
+   let P=preguntas[0]; //esta es la preguntas
     //buscra metodo para que traduzca al español
-    $('#pregunta').html(P.titulo);
+    console.log(P.titulo);
+   document.querySelector('#pregunta').textContent = P.titulo; //pONELRO COMO H2 QUE SI NO NO SE VE
     let NuevoArray=mezclarRespuestas(P.correcta, P.incorrectas); //este array tiene las respuestas 
    }
