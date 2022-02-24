@@ -9,36 +9,39 @@ import {preguntas} from './preguntas.js';
 /**
  * 1º banner para que introduzca el usuario
  */
-let cuerpo = document.querySelector('#Cuerpo_Principal');
-console.log(cuerpo);
+let cuerpo =$('#visor').css(["width:80%",
+   " margin:auto",
+    "height:auto",
+    "background-color: #1D0177",
+    "border-radius: 5em",
+    "border: gold 1px solid",
+    "color:cornsilk"]);
 let boolean=false;//boolean validador del nombre
 /**
  * Replace etiqueta Body por fragmento
  */
 let fragmento1=$(document.createDocumentFragment());
-let cuerpo2=$('<body>').css({
-    "background-image":"url('../Media/fondo1.gif')","background-repeat":"no-repeat","background-size":"cover","color":"azure", "width":"100%","height":"100%", "display":"grid"
-});
-let formulario=$("<form>").append('<label>').append('<span> Escriba su nombre </span>'); //cambiar esto
+
+let formulario=$("<form>").append('<label>').html('Escriba su nombre'); //cambiar esto
 let usuario=$('<input>').attr('id',"name").attr("type","text").attr('required');
-let btn=$('<input>').attr('id',"btn").attr('value','aceptar').on('click',function(){
+let btn=$('<input>').attr('id',"btn").attr('value','submit').on('click',function(){
     if(document.querySelector('#name').value.trim()===''){ //si está vacío
-        
+        usuario.html("ERROR ESCRIBA SU NOMBRE");
     }else{
         
         boolean=true;
 
         crearNavbar(document.querySelector('#name'));
-        crearLayout();
+       
         Jugar();
     }
 })
 formulario.append((usuario));
-cuerpo2.append(formulario,btn);
-fragmento1.append(cuerpo2);
-console.log(cuerpo2);
+fragmento1.append(formulario,btn);
+
+console.log(cuerpo);
 console.log(fragmento1);
-document.replaceChild(fragmento1,cuerpo);
+cuerpo.append(fragmento1);
 /**document.querySelector('#visor').append(fragmento1);
 document.querySelector('main').style.visibility='hidden';
 **/
