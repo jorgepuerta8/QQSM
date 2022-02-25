@@ -9,13 +9,6 @@
  */
 let preguntas=[];
 
-
-//1º)   Hacer la busqueda en JSON en los 5 ficheros
-//2º)   Son 2 preguntas por cada JSON
-
-
-
-//se pueden meter en un array de  strings con los archivos php
     $.ajax({
 url: 'https://opentdb.com/api.php?amount=15&type=multiple',
 type: "GET",
@@ -23,7 +16,12 @@ dataType: "json",
 
 success: CrearPregunta
     });
- 
+ /**
+  * Genera un array del objeto Preguntas
+  * @author Jorge
+  * 
+  * @param {any} datos 
+  */
 function CrearPregunta(datos){
   
     console.log(datos);
