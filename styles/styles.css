@@ -102,8 +102,12 @@ color:cornsilk;
     border-radius: 5em;
     border: gold 1px solid;
     color:cornsilk;
+    margin-left: 3%;
 }
 #btn:hover{
+    background-color: orange;
+}
+#btnPlantarse:hover{
     background-color: orange;
 }
 #contenedor{ /** el navegador**/

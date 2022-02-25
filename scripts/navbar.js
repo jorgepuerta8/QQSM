@@ -15,7 +15,7 @@ function crearNavbar(){
      */
      let contadorPreguntas=0; //contador de preguntas acertadas
     let nav=$(document.createDocumentFragment());
-     let PreguntasAcertadas=$('<div>').attr('id','PregAcertadas').css("width","20%").css("height","100%").css("margin","auto");
+     let PreguntasAcertadas=$('<div>').attr('id','PregAcertadas').attr("name","PregAcertadas").css("width","20%").css("height","100%").css("margin","auto");
         
     nav.append(PreguntasAcertadas);
         let Comodin1=$("<button>").attr('id',`comodin1`).attr("class","comodin").append('<img>').css({
