@@ -35,7 +35,7 @@ function crearNavbar(){
             "background-size":" cover",
             "background-position":" center"});
         
-    let Comodines=$("<div>").attr('id','Comodines').css("width","30%").css("height","100%").css("margin","auto").css("display","inline");
+    let Comodines=$("<div>").attr('id','Comodines').css("width","30%").css("height","20%").css("margin","auto");
     Comodines.append(Comodin1,Comodin2,Comodin3);
     console.log(Comodines);
     nav.append(Comodines);
