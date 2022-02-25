@@ -111,7 +111,10 @@ function generarPregunta(contadorPreguntas) {
   })
   $('#PregAcertadas').html(`Pregunta: ${contadorPreguntas}/15`);
   if(contadorPreguntas===4){
-    BtnPlantarse;
+    console.log("Llego");
+    let nB=$('<input>').attr("type", "button").attr("value","¿Quieres Rendirte?").attr('id', "btnPlantarse").on('click',finJuego);
+    console.log(nB);
+    $('#PregAcertadas').children().append(nB);
   }
 
 $('#dinero').html(`${nombre}:  ${dinero[contadorPreguntas]} €`);
@@ -151,20 +154,16 @@ function validarRespuestas(e) {
   } else {
     $(e.target).css("background-color", "orange");
     divcorrecto.css("background-color", "#099726");
-    finJuego;
+    finJuego();
     
   }
 
 }
-function BtnPlantarse(){
-  console.log("Llego");
-  let nB=$('<button>').attr('id', 'btnPlantarse').attr('value', '¿Quieres Rendirte?').on("click",finJuego);
-  console.log(nB);
-  $('#barra').append(nB);
-}
+
 function finJuego(){
 /**
  * Hacer el refresh
  */
-setTimeout((location.reload()),5000);
+ setTimeout(function () { location.reload(1); }, 3000);
+
 }
