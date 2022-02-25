@@ -9,7 +9,10 @@ import {preguntas} from './preguntas.js';
 /**
  * 1º banner para que introduzca el usuario
  */
+ let dinero=[0,500,1000,1500,2000,2500,3000,5000,10000,20000,50000,80000,100000,500000,1000000]; //se colocará el id en función del contador
+   
 let barra;
+let nombre;
 let contadorPreguntas =0; //contador de preguntas acertadas que nos servirá como indice en el array de preguntas
 let contenedor=$('<div>').attr('id','contenedor');
 console.log(barra);
@@ -37,10 +40,10 @@ function validarUser() {
     if(document.querySelector('#name').value.trim()===''){ //si está vacío
         usuario.html("ERROR ESCRIBA SU NOMBRE");
     }else{
-        let nombre=document.getElementById('name').value;
+        nombre=document.getElementById('name').value;
      
         boolean=true;
-          barra=crearNavbar(nombre);
+          barra=crearNavbar();
        cuerpo.replaceWith(contenedor);
        contenedor.append(barra).css("width","100%").css("height","40%").css("display","flex").css("flex-direction","column").css("background-color","#1D0177").css("border-radius","5em").css("border","gold 1px solid").css("color","cornsilk");;
       console.log(barra);
@@ -54,7 +57,8 @@ document.querySelector('main').style.visibility='hidden';
 function Jugar(){
     //do{
     $('#PregAcertadas').html(`Preguntas acertadas: ${contadorPreguntas}`);
-  generarPregunta(contadorPreguntas);
+    $('#dinero').html(`${nombre}:  ${dinero[contadorPreguntas]} €`);
+    generarPregunta(contadorPreguntas);
     $("#Respuesta1, #Respuesta2, #Respuesta3, #Respuesta4").click(validarRespuestas);
    
    //contadorPreguntas++; <--- Al final
@@ -126,7 +130,9 @@ function validarRespuestas(e){
        divcorrecto.css("background-color","#099726");
     contadorPreguntas++; //se suma la preguntas
     $('#dineroDiv').html(`${nombre}:  ${dinero[contadorPreguntas]} €`);
+    generarPregunta(contadorPreguntas);
    }else{
+       $(e.target).css("background-color","orange");
     divcorrecto.css("background-color","#099726");
    }
   
