@@ -55,7 +55,7 @@ function Jugar(){
     //do{
     $('#PregAcertadas').html(`Preguntas acertadas: ${contadorPreguntas}`);
   generarPregunta(contadorPreguntas);
-    
+    $("#Respuesta1, #Respuesta2, #Respuesta3, #Respuesta4").click(validarRespuestas);
    
    //contadorPreguntas++; <--- Al final
  //   }while(error == false); //mientras no falle que se ejecute el bucle
@@ -105,10 +105,18 @@ function generarPregunta(contadorPreguntas){
   
     $('#pregunta').first().html(P.titulo).css("font-size","1.6em");
     let NuevoArray=mezclarRespuestas(P.correcta, P.incorrectas); //este array tiene las respuestas a imprimir 
-    console.log(NuevoArray);
+    console.log(resCorrecta); //para saber la correcta
     //imprimir las nuevas respuestas
     $('#Respuesta1').first().html(`A) ${NuevoArray[0]}`).css("font-size","1.6em");
     $('#Respuesta2').first().html(`B) ${NuevoArray[1]}`).css("font-size","1.6em");
     $('#Respuesta3').first().html(`C) ${NuevoArray[2]}`).css("font-size","1.6em");
     $('#Respuesta4').first().html(`D) ${NuevoArray[3]}`).css("font-size","1.6em");
+    
+}
+
+function validarRespuestas(e){
+    let resCorrecta=preguntas[contadorPreguntas].correcta; //esta es la preguntas
+    console.log(resCorrecta);
+   console.log($(e.target).text());
+  
 }
