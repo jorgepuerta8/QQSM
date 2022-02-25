@@ -10,11 +10,13 @@ import {preguntas} from './preguntas.js';
  * 1º banner para que introduzca el usuario
  */
 let barra;
+let contadorPreguntas =0; //contador de preguntas acertadas que nos servirá como indice en el array de preguntas
 let contenedor=$('<div>').attr('id','contenedor');
 console.log(barra);
 let cuerpo=$('#visor');
     console.log(cuerpo);
 let boolean=false;//boolean validador del nombre
+let error=false; //boolean de control del array de jugar
 /**
  * Replace etiqueta Body por fragmento
  */
@@ -50,11 +52,13 @@ function validarUser() {
 document.querySelector('main').style.visibility='hidden';
 **/
 function Jugar(){
-  generarPregunta();
-
-   
-   
+    //do{
+    $('#PregAcertadas').html(`Preguntas acertadas: ${contadorPreguntas}`);
+  generarPregunta(contadorPreguntas);
     
+   
+   //contadorPreguntas++; <--- Al final
+ //   }while(error == false); //mientras no falle que se ejecute el bucle
 /** IMPORTANTE
  * 
  * 
@@ -63,19 +67,31 @@ mixer(arr)
  * PARA LAS PREGUNTAS BUSCRA ARRAY QUE DESCOLOQUE Y METR
  * 
 */
-console.log(preguntas[4].titulo);
+
 }
 function mezclarRespuestas(correcta, incorrectas){
-    let  arr = incorrectas.push(correcta);
-
-    let mixer = array => {
-        for (let i = 0; i < array.length; i++) {
-            let randomized = Math.round(Math.random() * array.length)
-            [array[randomized], array[i]] = [array[i], array[randomized]]
+   incorrectas.push(correcta);
+    console.log(incorrectas);
+    console.log(shuffle(incorrectas));
+    return shuffle(incorrectas);
+    function shuffle(array) {
+        let currentIndex = array.length,  randomIndex;
+        
+        // While there remain elements to shuffle...
+        while (currentIndex != 0) {
+      
+          // Pick a remaining element...
+          randomIndex = Math.floor(Math.random() * currentIndex);
+          currentIndex--;
+      
+          // And swap it with the current element.
+          [array[currentIndex], array[randomIndex]] = [
+            array[randomIndex], array[currentIndex]];
         }
-        return array; //nos devuelve el array
+      
+        return array;
+      }
     }
-}
 // Funciones de comodines //
 function publico(){
 
@@ -83,12 +99,16 @@ function publico(){
 function mitad(){
 //1º) query selector a los 
 }
-function generarPregunta(){
-   let P=preguntas[1]; //esta es la preguntas
-    //buscra metodo para que traduzca al español
-    console.log(P.titulo);
-    let enunciado=$('<h2>')
-    $('#pregunta').first().html(P.titulo).css("font-size","2em");
-    let NuevoArray=mezclarRespuestas(P.correcta, P.incorrectas); //este array tiene las respuestas 
-    
-   }
+function generarPregunta(contadorPreguntas){
+   let P=preguntas[contadorPreguntas]; //esta es la preguntas
+   let resCorrecta =P.correcta;
+  
+    $('#pregunta').first().html(P.titulo).css("font-size","1.6em");
+    let NuevoArray=mezclarRespuestas(P.correcta, P.incorrectas); //este array tiene las respuestas a imprimir 
+    console.log(NuevoArray);
+    //imprimir las nuevas respuestas
+    $('#Respuesta1').first().html(`A) ${NuevoArray[0]}`).css("font-size","1.6em");
+    $('#Respuesta2').first().html(`B) ${NuevoArray[1]}`).css("font-size","1.6em");
+    $('#Respuesta3').first().html(`C) ${NuevoArray[2]}`).css("font-size","1.6em");
+    $('#Respuesta4').first().html(`D) ${NuevoArray[3]}`).css("font-size","1.6em");
+}

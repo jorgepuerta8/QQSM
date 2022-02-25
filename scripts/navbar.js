@@ -16,7 +16,7 @@ function crearNavbar(nombre){
      let contadorPreguntas=0; //contador de preguntas acertadas
     let nav=$(document.createDocumentFragment());
     let dinero=[0,500,1000,1500,2000,2500,3000,5000,10000,20000,50000,80000,100000,500000,1000000]; //se colocará el id en función del contador
-    let PreguntasAcertadas=$('<div>').attr('id','PregAcertadas').html(`Preguntas acertadas: ${contadorPreguntas}`).css("width","20%").css("height","auto").css("margin","auto");
+    let PreguntasAcertadas=$('<div>').attr('id','PregAcertadas').css("width","20%").css("height","auto").css("margin","auto");
         
     nav.append(PreguntasAcertadas);
         let Comodin1=$("<button>").attr('id',`comodin1`).css("background-image","url('/Media/50.jpg')").css("background-repeat","no-repeat").css("background-size","cover").attr("class","comodin").attr('disabled','false');
