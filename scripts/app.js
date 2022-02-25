@@ -44,7 +44,7 @@ function validarUser() {
     boolean = true;
     barra = crearNavbar();
     cuerpo.replaceWith(contenedor);
-    contenedor.append(barra).css("width", "100%").css("height", "40%").css("display", "flex").css("flex-direction", "column").css("background-color", "#1D0177").css("border-radius", "5em").css("border", "gold 1px solid").css("color", "cornsilk");;
+    contenedor.append(barra).css("width", "100%").css("height", "40%").css("display", "flex").css("flex-direction", "column").css("flex-wrap","nowrap").css("background-color", "#1D0177").css("border-radius", "5em").css("border", "gold 1px solid").css("color", "cornsilk");;
     console.log(barra);
     Jugar();
   }
@@ -57,19 +57,10 @@ function Jugar() {
   //do{
 
   generarPregunta(contadorPreguntas);
+  if(contadorPreguntas===5)BtnPlantarse();
   $("#Respuesta1, #Respuesta2, #Respuesta3, #Respuesta4").click(validarRespuestas);
 
-  //contadorPreguntas++; <--- Al final
-  //   }while(error == false); //mientras no falle que se ejecute el bucle
-  /** IMPORTANTE
-   * 
-   * 
   
-  mixer(arr)
-   * PARA LAS PREGUNTAS BUSCRA ARRAY QUE DESCOLOQUE Y METR
-   * 
-  */
-
 }
 function mezclarRespuestas(correcta, incorrectas) {
   incorrectas.push(correcta);
@@ -153,6 +144,10 @@ function validarRespuestas(e) {
   } else {
     $(e.target).css("background-color", "orange");
     divcorrecto.css("background-color", "#099726");
+    //añadir evento refresh para decir que ha perdido
   }
+
+}
+function BtnPlantarse(){
 
 }
