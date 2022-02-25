@@ -27,7 +27,7 @@ let fragmento1 = $(document.createDocumentFragment());
 let formulario = $('<form>').append('<label>').html('Escriba su nombre').append('<br>');
 formulario.css("width", "80%").css("margin", "auto").css("height", "auto").css("background-color", "#1D0177").css("border-radius", "5em").css("border", "gold 1px solid").css("color", "cornsilk");
 let usuario = $('<input>').attr('id', "name").attr("type", "text").attr('required', 'true').css("width", "50%").css("margin", "auto");
-let btn = $('<input>').attr("type", "button").attr('id', "btn").attr('value', 'submit').on('click', validarUser);
+let btn = $('<input>').attr("type", "button").attr("value","Jugar").attr('id', "btn").on('click', validarUser);
 formulario.append(usuario);
 fragmento1.append(formulario, btn);
 console.log(cuerpo);
@@ -44,8 +44,8 @@ function validarUser() {
     boolean = true;
     barra = crearNavbar();
     cuerpo.replaceWith(contenedor);
-    contenedor.append(barra).css("width", "100%").css("height", "40%").css("display", "flex").css("flex-direction", "column").css("flex-wrap","nowrap").css("background-color", "#1D0177").css("border-radius", "5em").css("border", "gold 1px solid").css("color", "cornsilk");;
-    console.log(barra);
+    contenedor.append(barra);
+        console.log(barra);
     Jugar();
   }
 }
@@ -145,6 +145,7 @@ function validarRespuestas(e) {
     $(e.target).css("background-color", "orange");
     divcorrecto.css("background-color", "#099726");
     //añadir evento refresh para decir que ha perdido
+    setTimeout((location.reload(true),10000));
   }
 
 }

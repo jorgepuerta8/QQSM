@@ -98,5 +98,27 @@ color:cornsilk;
 .comodin{
 width: 20%;
 height: auto;
+}
+#btn{
+    margin: auto;
+    background-color: #1D0177;
+    border-radius: 5em;
+    border: gold 1px solid;
+    color:cornsilk;
+}
+#btn:hover{
+    background-color: crimson;
+}
+#contenedor{ /** el navegador**/
+    width: "100%";
+    height: 80%;
+    display:flex;
+    flex-direction:row;
+    flex-wrap:nowrap;
+    background-color:#1D0177;
+    border-radius:5em;
+    border:gold 1px solid;
+    color:cornsilk;
 
 }
+/**.css("width", "100%").css("height", "40%").css("display", "flex").css("flex-direction", "column").css("flex-wrap","nowrap").css("background-color", "#1D0177").css("border-radius", "5em").css("border", "gold 1px solid").css("color", "cornsilk");;
