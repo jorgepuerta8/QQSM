@@ -55,9 +55,9 @@ document.querySelector('main').style.visibility='hidden';
 **/
 function Jugar() {
   //do{
-
+    $("#comodin1, #comodin2, #comodin3").on("click", mitad);
   generarPregunta(contadorPreguntas);
-  $("#comodin1, #comodin2, #comodin3").on("click", mitad);
+  
   if(contadorPreguntas===4){
     BtnPlantarse;
   }
@@ -66,10 +66,13 @@ function Jugar() {
   
 }
 function mezclarRespuestas(correcta, incorrectas) {
-  incorrectas.push(correcta);
-  console.log(incorrectas);
-  console.log(shuffle(incorrectas));
-  return shuffle(incorrectas);
+  let Narray=[]; 
+   Narray.push(correcta);
+  let arr=Narray.concat(incorrectas);
+  console.log(Narray);
+  console.log(arr);
+  console.log(shuffle(arr));
+  return shuffle(arr);
   function shuffle(array) {
     let currentIndex = array.length, randomIndex;
 
@@ -92,10 +95,11 @@ function mezclarRespuestas(correcta, incorrectas) {
 
 function mitad(e) {
   console.log($(e.target));
- 
- $(`[name="${preguntas[contadorPreguntas].incorrectas[1]}"]`).html(" ");
-  $(`[name="${preguntas[contadorPreguntas].incorrectas[0]}"]`).html(" ");
-  $(e.target).attr("enabled","false");
+  let P=preguntas[contadorPreguntas];
+  console.log(P.incorrectas);
+ $(`[name="${P.incorrectas[0]}"]`).html(" ");
+  $(`[name="${P.incorrectas[2]}"]`).html(" ");
+  $(e.target).attr("disabled","disabled");
 }
 function generarPregunta(contadorPreguntas) {
   $(".Res").css("background-color", "#1D0177").css("border-radius", "5em").css("border", "gold 1px solid").css({ "color": "cornsilk" }).hover(function () {
