@@ -50,17 +50,13 @@ function validarUser() {
   }
 }
 
-/**document.querySelector('#visor').append(fragmento1);
-document.querySelector('main').style.visibility='hidden';
-**/
+
 function Jugar() {
   //do{
     $("#comodin1, #comodin2, #comodin3").on("click", mitad);
   generarPregunta(contadorPreguntas);
   
-  if(contadorPreguntas===4){
-    BtnPlantarse;
-  }
+  
   $("#Respuesta1, #Respuesta2, #Respuesta3, #Respuesta4").click(validarRespuestas);
 
   
@@ -114,7 +110,9 @@ function generarPregunta(contadorPreguntas) {
     })
   })
   $('#PregAcertadas').html(`Pregunta: ${contadorPreguntas}/15`);
-
+  if(contadorPreguntas===4){
+    BtnPlantarse;
+  }
 
 $('#dinero').html(`${nombre}:  ${dinero[contadorPreguntas]} €`);
 let P = preguntas[contadorPreguntas]; //esta es la preguntas
@@ -153,14 +151,20 @@ function validarRespuestas(e) {
   } else {
     $(e.target).css("background-color", "orange");
     divcorrecto.css("background-color", "#099726");
-    //añadir evento refresh para decir que ha perdido
+    finJuego;
     
   }
 
 }
 function BtnPlantarse(){
-  $('#PregAcertadas').append('<button>').attr('id', 'btnPlantarse').attr('value', '¿Quieres Rendirte?').click(finJuego);
+  console.log("Llego");
+  let nB=$('<button>').attr('id', 'btnPlantarse').attr('value', '¿Quieres Rendirte?').on("click",finJuego);
+  console.log(nB);
+  $('#barra').append(nB);
 }
 function finJuego(){
-
+/**
+ * Hacer el refresh
+ */
+setTimeout((location.reload()),5000);
 }
