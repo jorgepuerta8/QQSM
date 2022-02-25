@@ -57,7 +57,8 @@ function Jugar() {
   //do{
 
   generarPregunta(contadorPreguntas);
-  if(contadorPreguntas===5)BtnPlantarse();
+  $("#comodin1, #comodin2, #comodin3").click(mitad);
+  if(contadorPreguntas===4) BtnPlantarse;
   $("#Respuesta1, #Respuesta2, #Respuesta3, #Respuesta4").click(validarRespuestas);
 
   
@@ -87,8 +88,12 @@ function mezclarRespuestas(correcta, incorrectas) {
 }
 // Funciones de comodines //
 
-function mitad() {
-  
+function mitad(e) {
+  console.log($(e.target));
+ 
+ $(`[name="${preguntas[contadorPreguntas].incorrectas[1]}"]`).html(" ");
+  $(`[name="${preguntas[contadorPreguntas].incorrectas[0]}"]`).html(" ");
+  $(e.target).attr("enabled","false");
 }
 function generarPregunta(contadorPreguntas) {
   $(".Res").css("background-color", "#1D0177").css("border-radius", "5em").css("border", "gold 1px solid").css({ "color": "cornsilk" }).hover(function () {

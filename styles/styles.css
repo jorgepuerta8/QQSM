@@ -123,11 +123,13 @@ color:cornsilk;
     border-radius: 5em;
     border: gold 1px solid;
     color:cornsilk;
-   
-    width: 7vh;
-height: 7vh;
+   display:flex;
+   flex-direction:row;
+   flex-wrap:nowrap;
+    width: 6vh;
+height: 6vh;
 }
-.comodin:enabled:hover{
+.comodin:hover{
     border: crimson 2px solid;
     width: 6vh;
     height: 6vh;
