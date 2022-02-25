@@ -18,18 +18,18 @@ function crearNavbar(){
      let PreguntasAcertadas=$('<div>').attr('id','PregAcertadas').css("width","20%").css("height","100%").css("margin","auto");
         
     nav.append(PreguntasAcertadas);
-        let Comodin1=$("<input>").attr("type", "button").attr('id',`comodin1`).attr("class","comodin").attr('disabled','false').append('<img>').css({
+        let Comodin1=$("<button>").attr('id',`comodin1`).attr("class","comodin").append('<img>').css({
             "background-image":"url('/Media/50.jpg')",
             "background-repeat":"no-repeat",
             "background-size":" cover",
             "background-position":" center"
         });
-        let Comodin2=$("<input>").attr("type", "button").attr('id',`comodin2`).attr("class","comodin").attr('disabled','false').append('<img>').css({
+        let Comodin2=$("<button>").attr('id',`comodin2`).attr("class","comodin").append('<img>').css({
             "background-image":"url('/Media/50.jpg')",
             "background-repeat":"no-repeat",
             "background-size":" cover",
             "background-position":" center"});
-        let Comodin3=$("<input>").attr("type","button").attr('id',`comodin3`).attr("class","comodin").attr('disabled','false').append('<img>').css({
+        let Comodin3=$("<button>").attr('id',`comodin3`).attr("class","comodin").append('<img>').css({
             "background-image":"url('/Media/50.jpg')",
             "background-repeat":"no-repeat",
             "background-size":" cover",

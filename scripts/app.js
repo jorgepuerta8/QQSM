@@ -57,8 +57,10 @@ function Jugar() {
   //do{
 
   generarPregunta(contadorPreguntas);
-  $("#comodin1, #comodin2, #comodin3").on("click",mitad);
-  if(contadorPreguntas===4) BtnPlantarse;
+  $("#comodin1, #comodin2, #comodin3").on("click", mitad);
+  if(contadorPreguntas===4){
+    BtnPlantarse;
+  }
   $("#Respuesta1, #Respuesta2, #Respuesta3, #Respuesta4").click(validarRespuestas);
 
   
