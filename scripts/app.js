@@ -19,7 +19,6 @@ console.log(barra);
 let cuerpo = $('#visor');
 console.log(cuerpo);
 let boolean = false;//boolean validador del nombre
-let error = false; //boolean de control del array de jugar
 /**
  * Replace etiqueta Body por fragmento
  */
