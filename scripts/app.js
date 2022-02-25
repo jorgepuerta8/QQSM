@@ -13,7 +13,7 @@ import {preguntas} from './preguntas.js';
    
 let barra;
 let nombre;
-let contadorPreguntas =0; //contador de preguntas acertadas que nos servirá como indice en el array de preguntas
+let contadorPreguntas=0; //contador de preguntas acertadas que nos servirá como indice en el array de preguntas
 let contenedor=$('<div>').attr('id','contenedor');
 console.log(barra);
 let cuerpo=$('#visor');
@@ -56,8 +56,7 @@ document.querySelector('main').style.visibility='hidden';
 **/
 function Jugar(){
     //do{
-    $('#PregAcertadas').html(`Preguntas acertadas: ${contadorPreguntas}`);
-    $('#dinero').html(`${nombre}:  ${dinero[contadorPreguntas]} €`);
+  
     generarPregunta(contadorPreguntas);
     $("#Respuesta1, #Respuesta2, #Respuesta3, #Respuesta4").click(validarRespuestas);
    
@@ -104,6 +103,8 @@ function mitad(){
 //1º) query selector a los 
 }
 function generarPregunta(contadorPreguntas){
+  $("#Respuesta1, #Respuesta2, #Respuesta3, #Respuesta4").css("background-color","#1D0177").css("border-radius","5em").css("border","gold 1px solid");
+  $('#dinero').html(`${nombre}:  ${dinero[contadorPreguntas]} €`);
    let P=preguntas[contadorPreguntas]; //esta es la preguntas
    let resCorrecta =P.correcta;
   
@@ -111,24 +112,30 @@ function generarPregunta(contadorPreguntas){
     let NuevoArray=mezclarRespuestas(P.correcta, P.incorrectas); //este array tiene las respuestas a imprimir 
     console.log(resCorrecta); //para saber la correcta
     //imprimir las nuevas respuestas
-    $('#Respuesta1').first().html(`A) ${NuevoArray[0]}`).css("font-size","1.6em").attr("name", NuevoArray[0]);
-    $('#Respuesta2').first().html(`B) ${NuevoArray[1]}`).css("font-size","1.6em").attr("name", NuevoArray[1]);
-    $('#Respuesta3').first().html(`C) ${NuevoArray[2]}`).css("font-size","1.6em").attr("name", NuevoArray[2]);
-    $('#Respuesta4').first().html(`D) ${NuevoArray[3]}`).css("font-size","1.6em").attr("name", NuevoArray[3]);
+    $('#Respuesta1').first().html(`${NuevoArray[0]}`).css("font-size","1.6em").attr("name", NuevoArray[0]);
+    $('#Respuesta2').first().html(`${NuevoArray[1]}`).css("font-size","1.6em").attr("name", NuevoArray[1]);
+    $('#Respuesta3').first().html(`${NuevoArray[2]}`).css("font-size","1.6em").attr("name", NuevoArray[2]);
+    $('#Respuesta4').first().html(`${NuevoArray[3]}`).css("font-size","1.6em").attr("name", NuevoArray[3]);
     
 }
 
 function validarRespuestas(e){
     let resCorrecta=preguntas[contadorPreguntas].correcta; //esta es la preguntas
+    console.log(resCorrecta);
     //Hay que buscar dentro de los divs la respuesta correcta
    let respMarcada=($(e.target).text()); //la que se marca
+   console.log(respMarcada);
    let divcorrecto=$(`[name="${resCorrecta}"]`);
  //  let divcorrecto=$('#respuestas').find() //Mirar esto
    console.log(divcorrecto);
    console.log(divcorrecto.children('div'));
+  console.log(resCorrecta===respMarcada);
    if(resCorrecta===respMarcada){
+     console.log(contadorPreguntas);
        divcorrecto.css("background-color","#099726");
     contadorPreguntas++; //se suma la preguntas
+    
+    console.log(contadorPreguntas);
     $('#dineroDiv').html(`${nombre}:  ${dinero[contadorPreguntas]} €`);
     generarPregunta(contadorPreguntas);
    }else{
