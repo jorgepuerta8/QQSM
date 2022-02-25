@@ -14,11 +14,11 @@ let dinero = [0, 500, 1000, 1500, 2000, 2500, 3000, 5000, 10000, 20000, 50000, 8
 let barra;
 let nombre;
 let contadorPreguntas = 0; //contador de preguntas acertadas que nos servirá como indice en el array de preguntas
+let contMostrar = contadorPreguntas+1; //contador de preguntas acertadas que nos servirá como indice en el array de preguntas
 let contenedor = $('<div>').attr('id', 'contenedor');
-console.log(barra);
+
 let cuerpo = $('#visor');
-console.log(cuerpo);
-let boolean = false;//boolean validador del nombre
+
 /**
  * Replace etiqueta Body por fragmento
  */
@@ -30,8 +30,7 @@ let usuario = $('<input>').attr('id', "name").attr("type", "text").attr('require
 let btn = $('<input>').attr("type", "button").attr("value","Jugar").attr('id', "btn").on('click', validarUser);
 formulario.append(usuario);
 fragmento1.append(formulario, btn);
-console.log(cuerpo);
-console.log(fragmento1);
+
 cuerpo.append(fragmento1);
 
 
@@ -50,9 +49,11 @@ function validarUser() {
   }
 }
 
-
+/**
+ * 
+ */
 function Jugar() {
-  //do{
+  
     $("#comodin1, #comodin2, #comodin3").on("click", mitad);
   generarPregunta(contadorPreguntas);
   
@@ -109,12 +110,12 @@ function generarPregunta(contadorPreguntas) {
       "color": "cornsilk"
     })
   })
-  $('#PregAcertadas').html(`Pregunta: ${contadorPreguntas}/15`);
+  $('#PregAcertadas').html(`Pregunta: ${contMostrar++}/15`);
   if(contadorPreguntas===4){
-    console.log("Llego");
+   
     let nB=$('<input>').attr("type", "button").attr("value","¿Quieres Rendirte?").attr('id', "btnPlantarse").on('click',finJuego);
-    console.log(nB);
-    $('#PregAcertadas').children().append(nB);
+  
+    $(`[name="PregAcertadas"]`).append(nB);
   }
 
 $('#dinero').html(`${nombre}:  ${dinero[contadorPreguntas]} €`);
@@ -164,6 +165,6 @@ function finJuego(){
 /**
  * Hacer el refresh
  */
- setTimeout(function () { location.reload(1); }, 3000);
+ setTimeout(function () { location.reload(1); }, 1000);
 
 }
