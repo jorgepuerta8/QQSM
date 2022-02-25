@@ -109,7 +109,7 @@ color:cornsilk;
 #contenedor{ /** el navegador**/
     margin-top: 0;
     width: 100%;
-    height: 8vh;
+    height: 10vh;
     display:flex;
     flex-direction:row;
     flex-wrap:nowrap;
@@ -117,27 +117,22 @@ color:cornsilk;
     border-radius:5em;
     border:gold 1px solid;
     color:cornsilk;
-
+   
 }
-#comodines{
+#Comodines{
     flex-direction: row;
-    align-content: center;
-    justify-content: space-evenly;
-    align-items: center;
+    align-items: top;
     flex-wrap: nowrap;
 }
 .comodin{
     border-radius: 5em;
     border: gold 1px solid;
     color:cornsilk;
-   display:flex;
-   flex-direction:row;
-   flex-wrap:nowrap;
-    width: 10%;
+    width: 6vh;
 height: 6vh;
 }
 .comodin:hover{
-    border: crimson 2px solid;
-    width: auto;
+    border: crimson 3px solid;
+    width: 6vh;
     height: 6vh;
 }
