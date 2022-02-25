@@ -50,7 +50,7 @@ function validarUser() {
 document.querySelector('main').style.visibility='hidden';
 **/
 function Jugar(){
-  generarPregunta;
+  generarPregunta();
 
    
    
@@ -84,9 +84,11 @@ function mitad(){
 //1º) query selector a los 
 }
 function generarPregunta(){
-   let P=preguntas[0]; //esta es la preguntas
+   let P=preguntas[1]; //esta es la preguntas
     //buscra metodo para que traduzca al español
     console.log(P.titulo);
-   document.querySelector('#pregunta').textContent = P.titulo; //pONELRO COMO H2 QUE SI NO NO SE VE
+    let enunciado=$('<h2>')
+    $('#pregunta').first().html(P.titulo).css("font-size","2em");
     let NuevoArray=mezclarRespuestas(P.correcta, P.incorrectas); //este array tiene las respuestas 
+    
    }
