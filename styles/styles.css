@@ -95,11 +95,8 @@ color:cornsilk;
     background-color: orange;
     color: black;
 }
-.comodin{
-width: 20%;
-height: auto;
-}
-#btn{
+
+#btn,#btnRendirse{
     margin: auto;
     background-color: #1D0177;
     border-radius: 5em;
@@ -107,11 +104,12 @@ height: auto;
     color:cornsilk;
 }
 #btn:hover{
-    background-color: crimson;
+    background-color: orange;
 }
 #contenedor{ /** el navegador**/
-    width: "100%";
-    height: 80%;
+    margin-top: 0;
+    width: 100%;
+    height: 8vh;
     display:flex;
     flex-direction:row;
     flex-wrap:nowrap;
@@ -121,4 +119,16 @@ height: auto;
     color:cornsilk;
 
 }
-/**.css("width", "100%").css("height", "40%").css("display", "flex").css("flex-direction", "column").css("flex-wrap","nowrap").css("background-color", "#1D0177").css("border-radius", "5em").css("border", "gold 1px solid").css("color", "cornsilk");;
+.comodin{
+    border-radius: 5em;
+    border: gold 1px solid;
+    color:cornsilk;
+   
+    width: 7vh;
+height: 7vh;
+}
+.comodin:enabled:hover{
+    border: crimson 2px solid;
+    width: 6vh;
+    height: 6vh;
+}

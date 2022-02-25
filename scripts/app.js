@@ -86,11 +86,9 @@ function mezclarRespuestas(correcta, incorrectas) {
   }
 }
 // Funciones de comodines //
-function publico() {
 
-}
 function mitad() {
-  //1º) query selector a los 
+  
 }
 function generarPregunta(contadorPreguntas) {
   $(".Res").css("background-color", "#1D0177").css("border-radius", "5em").css("border", "gold 1px solid").css({ "color": "cornsilk" }).hover(function () {
@@ -104,7 +102,7 @@ function generarPregunta(contadorPreguntas) {
       "color": "cornsilk"
     })
   })
-
+  $('#PregAcertadas').html(`Pregunta: ${contadorPreguntas}/15`);
 
 
 $('#dinero').html(`${nombre}:  ${dinero[contadorPreguntas]} €`);
@@ -145,10 +143,13 @@ function validarRespuestas(e) {
     $(e.target).css("background-color", "orange");
     divcorrecto.css("background-color", "#099726");
     //añadir evento refresh para decir que ha perdido
-    setTimeout((location.reload(true),10000));
+    
   }
 
 }
 function BtnPlantarse(){
+  $('#PregAcertadas').append('<button>').attr('id', 'btnPlantarse').attr('value', '¿Quieres Rendirte?').click(finJuego);
+}
+function finJuego(){
 
 }
