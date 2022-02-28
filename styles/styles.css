@@ -99,3 +99,48 @@ color:cornsilk;
     background-color: orange;
     color: black;
 }
+
+#btn, #btnPlantarse{
+    margin: auto;
+    background-color: #1D0177;
+    border-radius: 5em;
+    border: gold 1px solid;
+    color:cornsilk;
+    margin-left: 3%;
+}
+#btn:hover{
+    background-color: orange;
+}
+#btnPlantarse:hover{
+    background-color: orange;
+}
+#contenedor{ /** el navegador**/
+    margin-top: 0;
+    width: 100%;
+    height: 10vh;
+    display:flex;
+    flex-direction:row;
+    flex-wrap:nowrap;
+    background-color:#1D0177;
+    border-radius:5em;
+    border:gold 1px solid;
+    color:cornsilk;
+   
+}
+#Comodines{
+    flex-direction: row;
+    align-items: top;
+    flex-wrap: nowrap;
+}
+.comodin{
+    border-radius: 5em;
+    border: gold 1px solid;
+    color:cornsilk;
+    width: 6vh;
+height: 6vh;
+}
+.comodin:hover{
+    border: crimson 3px solid;
+    width: 6vh;
+    height: 6vh;
+}
