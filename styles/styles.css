@@ -5,7 +5,11 @@ background-repeat: no-repeat;
 background-size: cover;
 text-align: center;
 }
-
+#visor {
+    visibility: visible;
+    background-image: url("../Media/fondo1.gif");
+    background-repeat: repeat;
+}
 navbar{
     grid-area: 1/1/2/3;
     display: flex; /** para alinear los elementos que se van a crear**/
